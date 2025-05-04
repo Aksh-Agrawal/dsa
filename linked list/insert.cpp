@@ -80,6 +80,27 @@ public:
             tail = temp;
         }
     }
+    void insert(int val , int pos){
+        if (pos == 0){
+            push_f(val);
+
+        }
+        if (pos<0){
+            cout<<"invalid pos"<<endl;
+        }
+        Node*temp = head;
+        for(int i = 0; i<pos-1;i++){
+            if (temp -> next == NULL){
+            cout<<"invalid pos"<<endl;
+
+            }
+            temp = temp-> next;
+
+        }
+        Node* newNode = new Node(val);
+        newNode -> next = temp-> next;
+        temp -> next = newNode;
+    }
     void print()
     {
         Node *temp = head;
@@ -119,5 +140,8 @@ int main()
     l.print();
     cout << endl;
 
+    cout<<"After Inserting: ";
+    l.insert(7,2);
+    l.print();
     return 0;
 }
